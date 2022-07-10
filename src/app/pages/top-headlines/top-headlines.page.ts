@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NewsService } from '../../services/news.service';
 import { Article } from '../../interfaces/article';
+import { IonInfiniteScroll } from '@ionic/angular';
 
 @Component({
   selector: 'app-top-headlines',
@@ -8,6 +9,7 @@ import { Article } from '../../interfaces/article';
   styleUrls: ['./top-headlines.page.scss'],
 })
 export class TopHeadlinesPage implements OnInit {
+  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
 
   public articles: Article[] = [];
 
@@ -16,6 +18,19 @@ export class TopHeadlinesPage implements OnInit {
   ngOnInit() {
     this.newsService.getTopHeadlines()
       .subscribe( articles => this.articles.push( ...articles ) );
+  }
+
+  loadData() {
+    this.newsService.getTopHeadlinesByCategory( 'business', true )
+      .subscribe( articles => {
+        if ( articles.length === this.articles.length ) {
+          this.infiniteScroll.disabled = true;
+          return;
+        }
+
+        this.articles = articles;
+        this.infiniteScroll.complete();
+      });
   }
 
 }
