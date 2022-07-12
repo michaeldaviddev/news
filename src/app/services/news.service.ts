@@ -20,7 +20,7 @@ export class NewsService {
   constructor( private http: HttpClient ) { }
 
   getTopHeadlines(): Observable<Article[]> {
-    return this.getTopHeadlinesByCategory('business');
+    return this.getTopHeadlinesByCategory('');
   }
 
   getTopHeadlinesByCategory( category: string, loadMore: boolean = false ): Observable<Article[]> {

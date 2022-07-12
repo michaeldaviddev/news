@@ -21,7 +21,7 @@ export class TopHeadlinesPage implements OnInit {
   }
 
   loadData() {
-    this.newsService.getTopHeadlinesByCategory( 'business', true )
+    this.newsService.getTopHeadlinesByCategory( '', true )
       .subscribe( articles => {
         if ( articles.length === this.articles.length ) {
           this.infiniteScroll.disabled = true;
