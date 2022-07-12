@@ -1,0 +1,9 @@
+ion-grid {
+  --ion-grid-padding: 0;
+  ion-col {
+    --ion-grid-column-padding: 0;
+    ion-button {
+      --padding-end: 0;
+    }
+  }
+}

@@ -54,7 +54,7 @@ export class ArticleComponent implements OnInit {
       handler: () => this.onShareArticle()
     };
 
-    if ( this.platform.is('desktop') ) {
+    if ( this.platform.is('capacitor') ) {
       actionButtons.unshift(shareBtn);
     }
 
