@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { TopHeadlinesPage } from './top-headlines.page';
+import {HttpClientModule} from "@angular/common/http";
 
 describe('TopHeadlinesPage', () => {
   let component: TopHeadlinesPage;
@@ -10,7 +11,10 @@ describe('TopHeadlinesPage', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ TopHeadlinesPage ],
-      imports: [IonicModule.forRoot()]
+      imports: [
+        IonicModule.forRoot(),
+        HttpClientModule
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(TopHeadlinesPage);

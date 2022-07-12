@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { ArticleComponent } from './article.component';
+import {IonicStorageModule} from "@ionic/storage-angular";
 
 describe('ArticleComponent', () => {
   let component: ArticleComponent;
@@ -10,7 +11,10 @@ describe('ArticleComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ArticleComponent ],
-      imports: [IonicModule.forRoot()]
+      imports: [
+        IonicModule.forRoot(),
+        IonicStorageModule.forRoot()
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(ArticleComponent);
